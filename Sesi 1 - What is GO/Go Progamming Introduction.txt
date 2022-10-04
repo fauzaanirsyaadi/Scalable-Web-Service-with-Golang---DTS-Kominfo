@@ -1,0 +1,14 @@
+Go adalah sebuah bahasa pemrograman open-source yang dibuat di Google pada tahun 2007 oleh RobertGriesemer, Rob Pike, dan Ken Thompson. Berikut merupakan kelebihan dari bahasa Go:
+  ●Clean And Simple: Go membuat segala sesuatu menjadi kompak dan indah. Kita dapat melakukan banyak halhanya dalam beberapa baris saja.
+  ●Concurrent: Go dapat menjalankan fungsi-fungsi dengan ringan seperti thread dan dapat berkomunikasiantara fungsi yang satu dan fungsi yang lain.
+  ●Fast: Proses compile di Go dapat dilakukan dengan cepat seperti proses compile pada bahasa pemrogramanC. Selain itu, Go di desain untuk komputer multi-core.
+
+Dapatkan installer dari Go pada link berikut https://golang.org/dl/. 
+
+
+Go Modules
+●Go Modules adalah sebuah manajemen dependensi dari bahasa Go. Seperti halnya npm pada bahasa Javascript atau composer pada bahasa PHP.
+●Di dukung pertama kali pada Go versi 1.11, tetapi finalisasi terakhir dari implementasi nya terjadi pada Go versi 1.13.
+●Digunakan untuk menginisialisasi sebuah projek, sekaligus melakukan manajemen terhadap 3rd party ataulibrary/package lain yang digunakan.
+●Go Modules digunakan melalui CLI.
+●Dengan menggunakan Go Modules, maka kita dapat membuat project Go di luar dari Go Workspace.
