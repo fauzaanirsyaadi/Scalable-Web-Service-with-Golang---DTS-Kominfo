@@ -1,12 +1,9 @@
 package model
 
 type Item struct {
-	ID         uint   `gorm:"primaryKey" json:"item_id"`
-	Item_code  string `gorm:"not null;type:varchar(50)" json:"item_code"`
-	Decription string `gorm:"not null;type:varchar(50)" json:"description"`
-	Quantity   int64  `gorm:"not null;type:int64" json:"quantity"`
-	Order_id   uint 	`gorm:"not null;type:uint" json:"order_id
+	ID         uint   `gorm:"primaryKey" json:"itemId"`
+	Item_code  string `gorm:"not null;type:varchar(50)" json:"itemCode"`
+	Decryption string `gorm:"not null;type:varchar(50)" json:"descryption"`
+	Quantity   int    `gorm:"not null;type:int" json:"quantity"`
+	Order_id   uint   `gorm:"not null;type:uint" json:"orderId"`
 }
-
-// produk == item
-// user == order

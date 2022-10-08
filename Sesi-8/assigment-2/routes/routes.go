@@ -9,11 +9,11 @@ import (
 func StartServer(ctl controller.Controller) error {
 	r := gin.Default()
 
-	r.GET("/persons", ctl.GetPersons)
-	r.GET("/persons/:id")
-	r.POST("/person", ctl.CreatePerson)
-	r.PUT("/person/:id")
-	r.DELETE("/person/:id")
+	r.GET("/items", ctl.GetItems)
+	r.GET("/items/:id")
+	r.POST("/item", ctl.CreateItem)
+	r.PUT("/item/:id")
+	r.DELETE("/item/:id")
 
 	return r.Run("localhost:8080")
 }

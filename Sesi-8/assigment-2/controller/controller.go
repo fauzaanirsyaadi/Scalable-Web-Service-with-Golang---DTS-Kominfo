@@ -18,20 +18,21 @@ func New(db database.Database) Controller {
 	}
 }
 
-func (c Controller) GetPersons(ctx *gin.Context) {
-	persons, err := c.db.GetPersons()
+// get item
+func (c Controller) GetItems(ctx *gin.Context) {
+	items, err := c.db.GetItems()
 	if err != nil {
 		ctx.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
 			"code":    "500",
 			"message": "error get data",
 		})
 	}
-	ctx.JSON(http.StatusOK, persons)
+	ctx.JSON(http.StatusOK, items)
 }
 
-func (c Controller) CreatePerson(ctx *gin.Context) {
-	var newPerson model.Person
-	err := ctx.BindJSON(&newPerson)
+func (c Controller) CreateItem(ctx *gin.Context) {
+	var newItem model.Item
+	err := ctx.BindJSON(&newItem)
 	if err != nil {
 		ctx.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
 			"code":    "500",
@@ -39,7 +40,7 @@ func (c Controller) CreatePerson(ctx *gin.Context) {
 		})
 	}
 
-	personResult, err := c.db.CreatePerson(newPerson)
+	itemResult, err := c.db.CreateItem(newItem)
 	if err != nil {
 		ctx.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
 			"code":    "500",
@@ -47,5 +48,50 @@ func (c Controller) CreatePerson(ctx *gin.Context) {
 		})
 	}
 
-	ctx.JSON(http.StatusOK, personResult)
+	ctx.JSON(http.StatusOK, itemResult)
+}
+
+// make func order with return json
+func (c Controller) GetOrder(ctx *gin.Context) {
+	orders, err := c.db.GetOrders()
+	if err != nil {
+		ctx.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
+			"code":    "500",
+			"message": "error get data",
+		})
+	}
+	ctx.JSON(http.StatusOK, orders)
+}
+
+// create order with return json
+/* {
+"orderedAt":"2019-11-09T21:21:46+00:00",
+"customerName":"Tom Jerry",
+"items":[
+	{
+		"itemCode":"123",
+		"descryption":"Telepon 18x",
+		"quantity":1
+	}
+]
+*/
+func (c Controller) CreateOrder(ctx *gin.Context) {
+	var newOrder model.Order
+	err := ctx.BindJSON(&newOrder)
+	if err != nil {
+		ctx.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
+			"code":    "500",
+			"message": "error bind json request",
+		})
+	}
+
+	orderResult, err := c.db.CreateOrder(newOrder)
+	if err != nil {
+		ctx.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
+			"code":    "500",
+			"message": "error create order",
+		})
+	}
+
+	ctx.JSON(http.StatusOK, orderResult)
 }
