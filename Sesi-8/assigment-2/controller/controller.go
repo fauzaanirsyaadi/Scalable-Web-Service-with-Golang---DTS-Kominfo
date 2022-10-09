@@ -51,7 +51,6 @@ func (c Controller) CreateItem(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, itemResult)
 }
 
-// make func order with return json
 func (c Controller) GetOrder(ctx *gin.Context) {
 	orders, err := c.db.GetOrders()
 	if err != nil {
@@ -63,18 +62,6 @@ func (c Controller) GetOrder(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, orders)
 }
 
-// create order with return json
-/* {
-"orderedAt":"2019-11-09T21:21:46+00:00",
-"customerName":"Tom Jerry",
-"items":[
-	{
-		"itemCode":"123",
-		"descryption":"Telepon 18x",
-		"quantity":1
-	}
-]
-*/
 func (c Controller) CreateOrder(ctx *gin.Context) {
 	var newOrder model.Order
 	err := ctx.BindJSON(&newOrder)
